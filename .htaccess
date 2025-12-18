@@ -1,0 +1,45 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Set base directory
+RewriteBase /OEE_Monitoring_API/
+
+# Add trailing slash to directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*[^/])$ /$1/ [L,R=301]
+
+# Remove .php extension
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Handle API requests
+RewriteRule ^api/oee$ API/oee.php [L,QSA]
+RewriteRule ^api/dashboard$ API/dashboard.php [L,QSA]
+RewriteRule ^api/import$ API/import_excel.php [L,QSA]
+
+# CORS headers for API
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+
+# Security headers
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-XSS-Protection "1; mode=block"
+
+# Prevent directory browsing
+Options -Indexes
+
+# Default charset
+AddDefaultCharset UTF-8
+
+# Compress responses
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/json
+</IfModule>
+
+# Cache control for static files
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType application/json "access plus 0 seconds"
+</IfModule>
