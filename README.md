@@ -412,8 +412,8 @@ This project is licensed under the MIT License.
 
 **Your Name**
 
-- Email: your-email@example.com
-- GitHub: [@yourusername](https://github.com/yourusername)
+- Email: ferdindi2314@gmail.com
+- GitHub: [@ferdindi2314](https://github.com/ferdindi2314)
 
 ---
 
@@ -430,7 +430,7 @@ This project is licensed under the MIT License.
 Jika ada pertanyaan atau butuh bantuan:
 
 - Create an issue di GitHub
-- Email: your-email@example.com
+- Email: ferdindi2314@gmail.com
 - Documentation: [API Docs](Documentation/API_DOCUMENTATION.md)
 
 ---
